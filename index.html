@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Convidados</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <h1>Lista de Convidados</h1>
+        <ul id="lista"></ul>
+        <input type="text" placeholder="Nome do convidado" name="" id="nome">
+        <input type="button" name="" value="Cadastrar" id="add">
+    </div>
+    <script>
+        var elLista= document.getElementById('lista')
+        var elNome=document.getElementById('nome')
+        var elAdd=document.getElementById('add')
+        var convidados=[
+            {id:1,nome:'Eneas', idade:16},
+            {id:2,nome:'Enesio', idade:17},       
+            {id:3,nome:'Eneias', idade:18},
+            {id:4,nome:'Genesio', idade:19}     
+        ]
+        for(convidado of convidados){
+            var elConvidado= document.createElement('li')
+            var elNome=document.createTextNode(convidado.nome)
+            elConvidado.appendChild(elNome)
+            elLista.appendChild(elConvidado)
+        }
+            
+    </script>
+</body>
+</html>
