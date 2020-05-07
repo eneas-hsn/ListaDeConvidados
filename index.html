@@ -25,8 +25,20 @@
             for(convidado of convidados){
             var elConvidado= document.createElement('li')
             var elNome=document.createTextNode(convidado.nome)
+
+            var elExcluir=document.createElement('a')
+            elExcluir.setAttribute('href','#')
+            elExcluir.onclick=function(){
+                convidados=convidados.filter(function (item) {
+                    return item.nome!==convidado.nome
+                })
+                listarConvidados()
+            }
+            var elExcluirTexto=document.createTextNode('Excluir')
             elConvidado.appendChild(elNome)
             elLista.appendChild(elConvidado)
+            elExcluir.appendChild(elExcluirTexto)
+            elConvidado.appendChild(elExcluir)
         }
         }
         function cadastra() {
