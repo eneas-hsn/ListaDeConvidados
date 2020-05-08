@@ -17,9 +17,11 @@
         var elLista= document.getElementById('lista')
         var elNome=document.getElementById('nome')
         var elAdd=document.getElementById('add')
-        var convidados=[
-                 
-        ]
+        var convidados=JSON.parse(localStorage.getItem('convidados'))||[] 
+
+        function salvar() {
+            localStorage.setItem('convidados',JSON.stringify(convidados))
+        }
         function listarConvidados() {
             elLista.innerHTML=''
             for(convidado of convidados){
@@ -33,6 +35,7 @@
                     return item.nome!==convidado.nome
                 })
                 listarConvidados()
+                salvar()
             }
             var elExcluirTexto=document.createTextNode('(x)')
             elConvidado.appendChild(elNome)
@@ -45,6 +48,7 @@
             var nome= elNome.value
             convidados.push({nome:nome})
             listarConvidados()
+            salvar()
         }
     </script>
 </body>
